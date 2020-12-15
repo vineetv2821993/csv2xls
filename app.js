@@ -1,4 +1,4 @@
-const json2xls = require('json2xls-xml')({ pretty: true });
+const json2xls = require('json2xls-xml')({ pretty: false });
 const _ = require('lodash');
 const csv = require("csvtojson");
 const jsonfile = require('jsonfile');
