@@ -52,6 +52,7 @@ let csv_files = walk(INPUT_FOLDER);
     var json_data = {};
 
     for (csv_file of csv_files) {
+
         if (IGNORE_NON_CSV && csv_file.search(/\.csv$/igs) < 0) {
             console.log("[skipping] " + new Date().toGMTString() + " : " + csv_file);
             continue;
@@ -60,15 +61,17 @@ let csv_files = walk(INPUT_FOLDER);
         let jsonArray = await csv().fromFile(csv_file);
         //Using Sheet Name as File Name
         let sheet_name = csv_file.split("/").pop().split(".")[0];
-        
+
         //Memory Caution Here; Very HUGE CSV may Break Here
         json_data[sheet_name] = jsonArray;
     }
 
     //Convert JSON to XLS
+    console.log("[converting] " + new Date().toGMTString() + " : " + csv_file);
     let xls_data = json2xls(json_data);
 
     // Bulk Writing to XLS
+    console.log("[writing] " + new Date().toGMTString() + " : " + csv_file);
     fs.writeFileSync(path.join(OUTPUT_FOLDER, OUTPUT_FILE), xls_data);
 })();
 
