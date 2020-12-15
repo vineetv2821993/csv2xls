@@ -48,7 +48,6 @@ try {
 
 let csv_files = walk(INPUT_FOLDER);
 
-console.log(csv_files);
 (async () => {
     var json_data = {};
 
