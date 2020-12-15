@@ -1,0 +1,6 @@
+{
+    "CSV_FOLDER": "./input",
+    "XLS_FOLDER": "./output",
+    "XLS_FILENAME": "output.xls",
+    "IGNORE_NON_CSV": true
+}
